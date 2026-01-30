@@ -1,0 +1,45 @@
+{
+  // ==========================================================================
+  // AWS MCP Server - Wrangler Configuration
+  // ==========================================================================
+  //
+  // MULTI-TENANT ARCHITECTURE:
+  // This server supports multiple AWS accounts. Credentials are passed via
+  // request headers, NOT stored as wrangler secrets.
+  //
+  // Required Headers:
+  // - X-AWS-Access-Key-ID: AWS access key ID
+  // - X-AWS-Secret-Access-Key: AWS secret access key
+  //
+  // Optional Headers:
+  // - X-AWS-Region: AWS region (default: us-east-1)
+  // - X-AWS-Session-Token: Session token for temporary credentials
+  // ==========================================================================
+
+  "name": "primrose-mcp-aws",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-12-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // ==========================================================================
+  // Environment Variables
+  // ==========================================================================
+  "vars": {
+    "CHARACTER_LIMIT": "50000",
+    "DEFAULT_PAGE_SIZE": "20",
+    "MAX_PAGE_SIZE": "100",
+    "DEFAULT_REGION": "us-east-1"
+  },
+
+  // ==========================================================================
+  // Development
+  // ==========================================================================
+  "dev": {
+    "port": 8787,
+    "local_protocol": "http"
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}
